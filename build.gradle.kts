@@ -1,4 +1,0 @@
-plugins { }
-subprojects {
-  repositories { mavenCentral() }
-}

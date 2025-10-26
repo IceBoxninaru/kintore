@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Workout Progress</title>
+  <link rel="stylesheet" href="/assets/app.css"/>
+</head>
+<body>
+  <header class="app-header">
+    <h1>種目ごとの推移</h1>
+    <nav>
+      <a href="/index.html">記録画面に戻る</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>推定1RMの推移</h2>
+      <div class="select-row">
+        <label for="exerciseSelect">種目を選択</label>
+        <select id="exerciseSelect"></select>
+      </div>
+      <canvas id="progressChart" aria-label="推定1RMの推移グラフ" role="img"></canvas>
+      <p id="chartMessage" class="message"></p>
+      <div class="summary" id="summary"></div>
+    </section>
+
+    <section class="card">
+      <h2>記録の一覧</h2>
+      <div id="tableContainer" class="message">読込中...</div>
+    </section>
+  </main>
+
+  <footer>
+    推移データは最新の推定1RMで集計されています。
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="/assets/progress.js"></script>
+</body>
+</html>

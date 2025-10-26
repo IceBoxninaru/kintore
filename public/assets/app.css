@@ -1,0 +1,276 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --border: #d0d5dd;
+  --accent: #4c6ef5;
+  --accent-soft: rgba(76, 110, 245, 0.12);
+  --success: #12b76a;
+  --danger: #f04438;
+  --danger-strong: #ea580c;
+  --text-weak: #667085;
+  --shadow: 0 18px 36px rgba(15, 23, 42, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+  color: #0f172a;
+}
+
+.app-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 20px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  color: var(--text-weak);
+  font-size: 0.95rem;
+}
+
+.app-header nav {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.app-header nav a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+main {
+  max-width: 960px;
+  margin: 32px auto 80px;
+  padding: 0 20px;
+  display: grid;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 1.28rem;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.card h2 span {
+  font-size: 0.82rem;
+  color: var(--text-weak);
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background: #3f58f4;
+}
+
+button.secondary {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+button.secondary:hover {
+  background: rgba(76, 110, 245, 0.22);
+}
+
+button.danger {
+  background: var(--danger-strong);
+}
+
+button.danger:hover {
+  background: #c2410c;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.grid.fit {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: end;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.status-badge.ok {
+  background: rgba(18, 183, 106, 0.16);
+  color: var(--success);
+}
+
+.status-badge.ng {
+  background: rgba(240, 68, 56, 0.16);
+  color: var(--danger);
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--text-weak);
+  margin: 0;
+}
+
+.message.error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-weak);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+thead {
+  background: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.76rem;
+  color: var(--text-weak);
+}
+
+th,
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #f5f7ff;
+}
+
+.target-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fbfcff;
+  display: grid;
+  gap: 10px;
+}
+
+.summary {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  color: var(--text-weak);
+  font-size: 0.92rem;
+}
+
+.select-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.select-row label {
+  margin: 0;
+}
+
+canvas {
+  width: 100%;
+  max-height: 420px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-weak);
+  font-size: 0.85rem;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}

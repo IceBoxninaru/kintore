@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Workout Logger</title>
+  <link rel="stylesheet" href="/assets/app.css"/>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Workout Logger</h1>
+    <p>プレス系の種目を簡単に記録して、次回目標をチェックできます。</p>
+    <nav>
+      <a href="/progress.html">グラフで推移を見る</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card" id="healthCard">
+      <h2>サーバーステータス <span>Health Check</span></h2>
+      <div class="grid fit">
+        <button id="btnHealth" class="secondary">/api/health をチェック</button>
+        <div id="healthStatus" class="status-badge">未チェック</div>
+      </div>
+      <p id="healthMessage" class="message"></p>
+    </section>
+
+    <section class="card">
+      <h2>セットを記録 <span>Log a Set</span></h2>
+      <form id="logForm">
+        <div class="grid">
+          <div>
+            <label for="exerciseSelect">種目</label>
+            <select id="exerciseSelect" name="exercise" required></select>
+            <input id="exerciseCustom" type="text" placeholder="新しい種目名を入力" class="mt-8" aria-label="カスタム種目" hidden>
+          </div>
+          <div>
+            <label for="date">日付</label>
+            <input id="date" name="date" type="date" required/>
+          </div>
+          <div>
+            <label for="weight">重量 (kg)</label>
+            <input id="weight" name="weight" type="number" min="0" step="0.5" value="50" required/>
+          </div>
+          <div>
+            <label for="reps">回数</label>
+            <input id="reps" name="reps" type="number" min="1" max="30" value="8" required/>
+          </div>
+        </div>
+        <button type="submit">記録する</button>
+        <p id="logMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>最近のセット <span>History</span></h2>
+      <div class="grid fit">
+        <div>
+          <label for="filterExercise">表示する種目</label>
+          <select id="filterExercise"></select>
+        </div>
+        <button id="btnRefresh" class="secondary">履歴を更新</button>
+      </div>
+      <p id="historyMessage" class="message"></p>
+      <div id="historyContainer" class="empty-state">まだ記録がありません。</div>
+    </section>
+
+    <section class="card">
+      <h2>次回目標 <span>Next Target</span></h2>
+      <form id="targetForm">
+        <div class="grid">
+          <div>
+            <label for="targetExercise">種目</label>
+            <select id="targetExercise" required></select>
+          </div>
+          <div>
+            <label for="step">プレート刻み (kg)</label>
+            <input id="step" type="number" min="0.25" step="0.25" value="1" required/>
+          </div>
+        </div>
+        <button type="submit">目標をチェック</button>
+        <p id="targetMessage" class="message"></p>
+      </form>
+      <div id="targetResult"></div>
+    </section>
+  </main>
+
+  <footer>
+    データはコンテナの <code>/app/data/sets.json</code> に保存されます。
+  </footer>
+
+  <script type="module" src="/assets/index.js"></script>
+</body>
+</html>

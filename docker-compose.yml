@@ -1,12 +1,15 @@
 services:
-  core:
+  web:
+    container_name: kintore-web-1
     build:
       context: .
-      dockerfile: docker/java/Dockerfile
+      dockerfile: docker/web/Dockerfile
+    image: kintore-web:latest
+    ports:
+      - "8080:8080"
     volumes:
-      - ./:/app
-      - gradle-cache:/root/.gradle
-    working_dir: /app
-    tty: true
+      - data:/app/data
+    restart: unless-stopped
+
 volumes:
-  gradle-cache:
+  data:

@@ -1,0 +1,9 @@
+node_modules
+data
+.git
+.gradle
+core
+build
+*.iml
+/Dockerfile
+/docker-compose.yml
