@@ -1,0 +1,12 @@
+services:
+  core:
+    build:
+      context: .
+      dockerfile: docker/java/Dockerfile
+    volumes:
+      - ./:/app
+      - gradle-cache:/root/.gradle
+    working_dir: /app
+    tty: true
+volumes:
+  gradle-cache:
